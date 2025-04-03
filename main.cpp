@@ -1,33 +1,22 @@
 #include <iostream>
 #include <set>
+#include <cmath>
 using namespace std;
 
 
-bool isIsogram(const string& str) {
-    if(str.length() == 0) {
-        return true;
-    }
+bool isSquareNum(const int& number) {
+    double sq = sqrt(number);
 
-    bool isFlag = true;
-    set<char> ch = {};
-
-    for(int i = 0; i < str.size(); i++) {
-        int initSetSize = ch.size();
-
-        ch.insert(tolower(str[i]));
-
-        if(initSetSize == ch.size()) {
-            isFlag = false;
-
-            break;
-        }
-    }
-
-    return isFlag;
+    return floor(sq) == sq;
 };
 
 int main() {
-    cout << isIsogram("") << endl;
+    cout << isSquareNum(-1) << endl;
+    cout << isSquareNum(0) << endl;
+    cout << isSquareNum(3) << endl;
+    cout << isSquareNum(4) << endl;
+    cout << isSquareNum(25) << endl;
+    cout << isSquareNum(26) << endl;
 
     return 0;
 }
